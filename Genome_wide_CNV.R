@@ -31,3 +31,5 @@ generate.cnv.plot("cf3.1.cns")
 generate.cnv.plot("cf3.2.cns")
 
 #ggplot(cns.data, aes(chromosome, fill=chromosome)) + geom_bar(position="dodge")
+barplot( cns.data$log2, col=cns.data$chromosome   ,
+         ylim=c(-1,6),width = cns.data$width , border =   cns.data$chromosome     )
