@@ -7,7 +7,7 @@ GATK="/home/qan/GenomeAnalysisTK-3.6/GenomeAnalysisTK.jar"
 # alignment $1 is first pair , $2 is second pair
 # $3 is name, ${4} a number
 
-bwa mem -t 14  /labshares/fanlab/anqin/REF/Hg19/Homo_sapiens/UCSC/hg19/Sequence/BWAIndex/genome.fa  ${1} ${2} > ${3}_hg19_bwa_align.sam
+#bwa mem -t 14  /labshares/fanlab/anqin/REF/Hg19/Homo_sapiens/UCSC/hg19/Sequence/BWAIndex/genome.fa  ${1} ${2} > ${3}_hg19_bwa_align.sam
 
 
 
@@ -16,20 +16,20 @@ bwa mem -t 14  /labshares/fanlab/anqin/REF/Hg19/Homo_sapiens/UCSC/hg19/Sequence/
 
 
 # add group information
-/home/qan/jdk1.8.0_77/bin/java -Djava.io.tmpdir=`pwd`/tmp -jar /home/qan/picard-tools-2.1.1_03282016/picard.jar  AddOrReplaceReadGroups \
-	I=${3}_hg19_bwa_align.sam \
-	O=${3}_hg19_bwa_align_gpi.bam \
-	RGID=${4} \
-	RGLB=lib1 \
-	RGPL=illumina \
-	RGPU=unit1 \
-	RGSM=${4}
+#/home/qan/jdk1.8.0_77/bin/java -Djava.io.tmpdir=`pwd`/tmp -jar /home/qan/picard-tools-2.1.1_03282016/picard.jar  AddOrReplaceReadGroups \
+#	I=${3}_hg19_bwa_align.sam \
+#	O=${3}_hg19_bwa_align_gpi.bam \
+#	RGID=${4} \
+#	RGLB=lib1 \
+#	RGPL=illumina \
+#	RGPU=unit1 \
+#	RGSM=${4}
 
 
 #rm ${1}_bwa_align.sam
 
 #bug fixed
-samtools sort -@ 10  ${3}_hg19_bwa_align_gpi.bam  ${3}_hg19_bwa_align_sorted_gpied
+#samtools sort -@ 10  ${3}_hg19_bwa_align_gpi.bam  ${3}_hg19_bwa_align_sorted_gpied
 
 #rm ${1}_bwa_align_gpi.bam
 
