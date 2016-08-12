@@ -16,25 +16,25 @@ GATK="/home/qan/GenomeAnalysisTK-3.6/GenomeAnalysisTK.jar"
 
 
 # add group information
-/home/qan/jdk1.8.0_77/bin/java -Djava.io.tmpdir=`pwd`/tmp -jar /home/qan/picard-tools-2.1.1_03282016/picard.jar  AddOrReplaceReadGroups \
-	I=${3}_hg19_bwa_align.sam \
-	O=${3}_hg19_bwa_align_gpi.bam \
-	RGID=${4} \
-	RGLB=lib1 \
-	RGPL=illumina \
-	RGPU=unit1 \
-	RGSM=${4}
+#/home/qan/jdk1.8.0_77/bin/java -Djava.io.tmpdir=`pwd`/tmp -jar /home/qan/picard-tools-2.1.1_03282016/picard.jar  AddOrReplaceReadGroups \
+#	I=${3}_hg19_bwa_align.sam \
+#	O=${3}_hg19_bwa_align_gpi.bam \
+#	RGID=${4} \
+#	RGLB=lib1 \
+#	RGPL=illumina \
+#	RGPU=unit1 \
+#	RGSM=${4}
 
 
 #rm ${1}_bwa_align.sam
 
 #bug fixed
-samtools sort -@ 10  ${3}_hg19_bwa_align_gpi.bam  ${3}_hg19_bwa_align_sorted_gpied
+#samtools sort -@ 4  ${3}_hg19_bwa_align_gpi.bam  ${3}_hg19_bwa_align_sorted_gpied
 
 #rm ${1}_bwa_align_gpi.bam
 
 # mark duplicates
-/home/qan/jdk1.8.0_77/bin/java -Djava.io.tmpdir=`pwd`/tmp -jar /home/qan/picard-tools-2.1.1_03282016/picard.jar  MarkDuplicates \
+/home/qan/jdk1.8.0_77/bin/java  -Xmx4G -Djava.io.tmpdir=`pwd`/tmp -jar /home/qan/picard-tools-2.1.1_03282016/picard.jar  MarkDuplicates \
 	I=${3}_hg19_bwa_align_sorted_gpied.bam \
 	O=${3}_hg19_bwa_align_sorted_gpied_dedup.bam \
 	M=${3}marked_dup_metrics.txt

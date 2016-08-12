@@ -26,6 +26,8 @@ refFlat.txt, **DO NOT add # lines**
 
 Use qrsh to specify node run on.
 
-## Generate
+## For each sample, generate cnn file
+
+
 
 ##Regenerate cns files for heatmap drawing
