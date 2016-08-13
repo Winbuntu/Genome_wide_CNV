@@ -27,7 +27,13 @@ refFlat.txt, **DO NOT add # lines**
 Use qrsh to specify node run on.
 
 ## For each sample, generate cnn file
+cnv\_for\_each_sample.sh
+## For all reference sample, generate ref.cnn
 
+cnvkit\_ref.sh
 
+## For all tumor sample, compute cnr and cns files
+
+cnv\_each\_tumor\_sample.sh
 
 ##Regenerate cns files for heatmap drawing
